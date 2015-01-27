@@ -1,15 +1,14 @@
 <?php
 
 /**
- * CakePHP Smarty view class
+ * CakePHP Smarty View Class
  *
- * This class will allow using Smarty with CakePHP
+ * CakePHP用Smarty設定プラグイン
  *
- * Original code is http://cakeforge.org/snippet/detail.php?type=snippet&id=6
- * and modified to work with CakePHP 2.0 and later as plugin.
+ * Original code is https://github.com/news2u/cakephp-smartyview
  * 
- * @author       Daiji Hirata
- * @package      smartyview
+ * @author       Norihisa Ohnami
+ * @package      SmartyView
  * @subpackage   view
  * @since        CakePHP v 2.0
  * @license      MIT License
@@ -44,8 +43,8 @@ class SmartyView extends View {
     function __construct(&$controller) {
 
         // Loading base class of Smarty Helpers
-        App::uses('SmartyBaseHelper', $this->pluginName.'.'.'View/Helper');
-        
+        App::uses('SmartyBaseHelper', $this->pluginName . '.' . 'View/Helper');
+
         parent::__construct($controller);
 
         $this->Smarty = new Smarty();

@@ -1,47 +1,42 @@
-cakephp-smartyview
+Cakephp-SmartyView
 ==================
 
-Smarty View class and helpers plugin for CakePHP 2.0 and later.
-Works with Smarty version 2.6 and 3.1 both.
+CakePHP用Smarty設定プラグイン
+- CakePHP 2.0以上
+- Smarty 2.6/3.1
 
-## Installation
+## インストール
+app/Plugin以下にディレクトリ名「SmartyView」で設置
 
-In plugin directory of your app:
+    git clone git://github.com/BijutsuShuppanNetworks-INC/CakePHP-SmartyView.git SmartyView
 
-    git git://github.com/news2u/cakephp-smartyview.git SmartyView
 
-## How to use
+## 使い方
 
-Install Smarty to Vendor directory.
+### Smarty本体のインストール
+Smarty本体をapp/Vender以下にディレクトリ名「smarty」で設置
 
-Set $viewClass in AppController class;
+### Smarty用一時ディレクトリ作成
+下記ディレクトリを作成
+- tmp/smarty/cache
+- tmp/smarty/compile
+
+### プラグイン読み込み
+app/Config/bootstrap.phpで「SmartyView」プラグインを読み込む記述の追加
+
+    CakePlugin::load('SmartyView');
+
+### Viewクラス指定
+app/Controller/AppController.phpでViewクラスに「SmartyView」を使用する記述の追加
 
     class AppController extends Controller {   
 
         ...      
     
         public $viewClass = 'SmartyView.Smarty';
-        public $helpers = array(
-            'SmartyView.SmartyHtml', 
-            'SmartyView.SmartyForm',
-            'SmartyView.SmartySession',
-            'SmartyView.SmartyJavascript', 
-            'Html', 'Session'
-        );
 
         ...
     }
-    
-And put Smarty Template in View directory instead of .ctp file.
 
-## Reference
-
-SmartyView original code are written by tclineks and icedcheese:
-
-* http://bakery.cakephp.org/articles/tclineks/2006/10/27/how-to-use-smarty-with-cake-smartyview
-* http://bakery.cakephp.org/articles/icedcheese/2008/01/14/smarty-view-for-1-2
-
-Original Helpers are also written by tclineks
-
-* http://bakery.cakephp.org/articles/view/138 (currentry page not found)
-
+### tplファイルの用意
+app/View以下にSmartyテンプレートファイルを拡張子「tpl」で用意する
